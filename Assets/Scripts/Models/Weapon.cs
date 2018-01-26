@@ -1,7 +1,7 @@
 ﻿using System.Runtime.Serialization;
 using Assets.Plugins.SimpleStore;
 
-namespace Assets.Scripts
+namespace Assets.Scripts.Models
 {
     public class Weapon : Item
     {

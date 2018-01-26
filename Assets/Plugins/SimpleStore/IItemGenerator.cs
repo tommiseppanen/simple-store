@@ -1,6 +1,8 @@
-﻿namespace Assets.Plugins.SimpleStore
+﻿using System.Collections.Generic;
+
+namespace Assets.Plugins.SimpleStore
 {
     public interface IItemGenerator  {
-        Item Generate(int level);
+        IEnumerable<Item> Generate();
     }
 }

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Assets.Plugins.SimpleStore;
 
-namespace Assets.Scripts
+namespace Assets.Scripts.Models
 {
     public class ArmorGenerator : IItemGenerator
     {
@@ -12,7 +12,7 @@ namespace Assets.Scripts
         {
             this._random = random;
         }
-		public Item Generate(int level)
+		public IEnumerable<Item> Generate()
 		{
 		    var armors = new List<Armor>
 		    {
@@ -21,10 +21,7 @@ namespace Assets.Scripts
                 new Armor("Plate", _random.Next(800,900))
             };
              
-
-            return armors.First();
-
-
+            return armors;
         }
     }
 }
