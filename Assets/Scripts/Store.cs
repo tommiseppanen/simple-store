@@ -14,7 +14,7 @@ namespace Assets.Scripts
         private void UpdateSelection()
         {
             var random = new System.Random();
-            var generators = new List<IItemGenerator>
+            var generators = new List<IStoreItemGenerator>
             {
                 new ArmorGenerator(random),
                 new WeaponGenerator(random)
@@ -23,7 +23,7 @@ namespace Assets.Scripts
             items.ForEach(i => InitializePanel(Instantiate(_itemPanelPrefab, transform), i));
         }
 
-        private static void InitializePanel(Component tileObject, Item item)
+        private static void InitializePanel(Component tileObject, IStoreItem item)
         {
             var panel = tileObject.GetComponent<ItemPanel>();
             panel.ItemData = item;

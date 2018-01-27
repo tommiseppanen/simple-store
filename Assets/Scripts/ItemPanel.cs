@@ -16,8 +16,8 @@ namespace Assets.Scripts
         [SerializeField]
         private Image _image;
 
-        private Item _itemData;
-        public Item ItemData
+        private IStoreItem _itemData;
+        public IStoreItem ItemData
         {
             get
             {

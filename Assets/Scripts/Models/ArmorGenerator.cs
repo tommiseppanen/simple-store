@@ -5,14 +5,14 @@ using Assets.Plugins.SimpleStore;
 
 namespace Assets.Scripts.Models
 {
-    public class ArmorGenerator : IItemGenerator
+    public class ArmorGenerator : IStoreItemGenerator
     {
         private readonly Random _random;
         public ArmorGenerator(Random random)
         {
             this._random = random;
         }
-		public IEnumerable<Item> Generate()
+		public IEnumerable<IStoreItem> Generate()
 		{
 		    var armors = new List<Armor>
 		    {
