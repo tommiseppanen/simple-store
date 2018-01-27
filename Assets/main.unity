@@ -317,7 +317,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 996451896}
   m_Direction: 2
   m_Value: 0
-  m_Size: 0.9996269
+  m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -397,8 +397,8 @@ Camera:
   m_GameObject: {fileID: 466729223}
   m_Enabled: 1
   serializedVersion: 2
-  m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_ClearFlags: 2
+  m_BackGroundColor: {r: 0, g: 0, b: 0, a: 0}
   m_NormalizedViewPortRect:
     serializedVersion: 2
     x: 0
@@ -513,6 +513,7 @@ GameObject:
   - component: {fileID: 689510665}
   - component: {fileID: 689510666}
   - component: {fileID: 689510667}
+  - component: {fileID: 689510668}
   m_Layer: 5
   m_Name: Content
   m_TagString: Untagged
@@ -536,8 +537,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0.0021009366}
-  m_SizeDelta: {x: 0, y: 300}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &689510666
 MonoBehaviour:
@@ -558,7 +559,7 @@ MonoBehaviour:
   m_ChildAlignment: 0
   m_StartCorner: 0
   m_StartAxis: 0
-  m_CellSize: {x: 150, y: 200}
+  m_CellSize: {x: 145, y: 200}
   m_Spacing: {x: 0, y: 0}
   m_Constraint: 0
   m_ConstraintCount: 2
@@ -575,6 +576,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _itemPanelPrefab: {fileID: 224940320306711390, guid: 4608f0de0d0fd1c4981128070d492558,
     type: 2}
+--- !u!114 &689510668
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 689510664}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1741964061, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_HorizontalFit: 0
+  m_VerticalFit: 1
 --- !u!1 &996451895
 GameObject:
   m_ObjectHideFlags: 0
@@ -755,7 +769,7 @@ Prefab:
     - target: {fileID: 224940320306711390, guid: 4608f0de0d0fd1c4981128070d492558,
         type: 2}
       propertyPath: m_AnchoredPosition.x
-      value: 75
+      value: 72.5
       objectReference: {fileID: 0}
     - target: {fileID: 224940320306711390, guid: 4608f0de0d0fd1c4981128070d492558,
         type: 2}
@@ -765,7 +779,7 @@ Prefab:
     - target: {fileID: 224940320306711390, guid: 4608f0de0d0fd1c4981128070d492558,
         type: 2}
       propertyPath: m_SizeDelta.x
-      value: 150
+      value: 145
       objectReference: {fileID: 0}
     - target: {fileID: 224940320306711390, guid: 4608f0de0d0fd1c4981128070d492558,
         type: 2}
@@ -815,7 +829,7 @@ Prefab:
     - target: {fileID: 224637012918747946, guid: 4608f0de0d0fd1c4981128070d492558,
         type: 2}
       propertyPath: m_AnchoredPosition.x
-      value: 75
+      value: 72.5
       objectReference: {fileID: 0}
     - target: {fileID: 224637012918747946, guid: 4608f0de0d0fd1c4981128070d492558,
         type: 2}
@@ -835,7 +849,7 @@ Prefab:
     - target: {fileID: 224557021711672592, guid: 4608f0de0d0fd1c4981128070d492558,
         type: 2}
       propertyPath: m_AnchoredPosition.x
-      value: 75
+      value: 72.5
       objectReference: {fileID: 0}
     - target: {fileID: 224557021711672592, guid: 4608f0de0d0fd1c4981128070d492558,
         type: 2}
@@ -855,7 +869,7 @@ Prefab:
     - target: {fileID: 224175394781734470, guid: 4608f0de0d0fd1c4981128070d492558,
         type: 2}
       propertyPath: m_AnchoredPosition.x
-      value: 75
+      value: 72.5
       objectReference: {fileID: 0}
     - target: {fileID: 224175394781734470, guid: 4608f0de0d0fd1c4981128070d492558,
         type: 2}
@@ -875,7 +889,7 @@ Prefab:
     - target: {fileID: 224265887558770132, guid: 4608f0de0d0fd1c4981128070d492558,
         type: 2}
       propertyPath: m_AnchoredPosition.x
-      value: 75
+      value: 72.5
       objectReference: {fileID: 0}
     - target: {fileID: 224265887558770132, guid: 4608f0de0d0fd1c4981128070d492558,
         type: 2}
@@ -1046,7 +1060,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1832476536}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
@@ -1085,7 +1099,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Content: {fileID: 689510665}
-  m_Horizontal: 1
+  m_Horizontal: 0
   m_Vertical: 1
   m_MovementType: 1
   m_Elasticity: 0.1

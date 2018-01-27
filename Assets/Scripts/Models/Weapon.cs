@@ -7,7 +7,7 @@ namespace Assets.Scripts.Models
     {
         public int Level => Damage / 10;
         public string Description => $"Damage: {Damage}\nAttack speed: {AttackSpeed}";
-        public decimal Price => Level*Level+99;
+        public decimal Price => Level*Level/10*10+99;
         public int Damage { get; }
         public float AttackSpeed { get; }
         public Weapon(string name, int damage, float attackSpeed) : base(name)

@@ -28,7 +28,7 @@ namespace Assets.Scripts
                 _itemData = value;
                 _name.text = value.Name;
                 _description.text = value.Description;
-                _price.text = value.Price.ToString(CultureInfo.InvariantCulture);
+                _price.text = $"{value.Price.ToString(CultureInfo.InvariantCulture)} C";
             }
         }
 
