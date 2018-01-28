@@ -25,7 +25,7 @@ namespace Assets.Scripts
 
         private static void InitializePanel(Component tileObject, IStoreItem item)
         {
-            var panel = tileObject.GetComponent<ItemPanel>();
+            var panel = tileObject.GetComponent<ItemViewModel>();
             panel.ItemData = item;
         }
 

@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 namespace Assets.Scripts
 {
-    public class ItemPanel : MonoBehaviour {
+    public class ItemViewModel : MonoBehaviour {
 
         [SerializeField]    
         private Text _name;
@@ -15,6 +15,12 @@ namespace Assets.Scripts
         private Text _price;
         [SerializeField]
         private Image _image;
+
+        [SerializeField]
+        private GameObject _infoPanel;
+
+        [SerializeField]
+        private GameObject _actionPanel;
 
         private IStoreItem _itemData;
         public IStoreItem ItemData
@@ -40,6 +46,22 @@ namespace Assets.Scripts
         // Update is called once per frame
         void Update () {
 		
+        }
+
+        public void ToggleState()
+        {
+            _infoPanel.SetActive(!_infoPanel.activeSelf);
+            _actionPanel.SetActive(!_infoPanel.activeSelf);
+        }
+
+        public void BuyAndWear()
+        {
+            ToggleState();
+        }
+
+        public void Buy()
+        {
+            ToggleState();
         }
     }
 }
