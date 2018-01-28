@@ -7,5 +7,6 @@ namespace Assets.Plugins.SimpleStore
         string Name { get; }
         string Description { get; }
         decimal Price { get; }
+        string Image { get; }
     }
 }

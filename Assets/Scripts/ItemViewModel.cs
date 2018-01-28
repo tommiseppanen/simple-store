@@ -35,6 +35,7 @@ namespace Assets.Scripts
                 _name.text = value.Name;
                 _description.text = value.Description;
                 _price.text = $"{value.Price.ToString(CultureInfo.InvariantCulture)} C";
+                _image.sprite = Resources.Load<Sprite>($"Images/{value.Image}");
             }
         }
 

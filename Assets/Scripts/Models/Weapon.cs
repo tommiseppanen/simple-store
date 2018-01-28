@@ -9,6 +9,7 @@ namespace Assets.Scripts.Models
         public string Description => $"Damage: {Damage}\nAttack speed: {AttackSpeed}";
         public decimal Price => Level*Level/10*10+99;
         public int Damage { get; }
+        public string Image => "sword";
         public float AttackSpeed { get; }
         public Weapon(string name, int damage, float attackSpeed) : base(name)
         {
