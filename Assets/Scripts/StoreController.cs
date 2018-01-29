@@ -2,31 +2,36 @@
 using System.Linq;
 using Assets.Plugins.SimpleStore;
 using Assets.Scripts.Models;
+using ModestTree;
 using UnityEngine;
+using Zenject;
 
 namespace Assets.Scripts
 {
-    public class Store : MonoBehaviour {
+    public class StoreController : MonoBehaviour
+    {
+
+        private IStoreService _storeService;
 
         [SerializeField]
         private Transform _itemPanelPrefab;
 
+        [Inject]
+        public void Init(IStoreService storeService)
+        {
+            this._storeService = storeService;
+        }
+
         private void UpdateSelection()
         {
-            var random = new System.Random();
-            var generators = new List<IStoreItemGenerator>
-            {
-                new ArmorGenerator(random),
-                new WeaponGenerator(random)
-            };
-            var items = generators.SelectMany(g => g.Generate()).ToList();
-            items.ForEach(i => InitializePanel(Instantiate(_itemPanelPrefab, transform), i));
+            _storeService.GenerateItems().ForEach(i => 
+                InitializePanel(Instantiate(_itemPanelPrefab, transform), i));
         }
 
         private static void InitializePanel(Component tileObject, IStoreItem item)
         {
-            var panel = tileObject.GetComponent<ItemViewModel>();
-            panel.ItemData = item;
+            var panelPrefab = tileObject.GetComponent<ItemViewModel>();
+            panelPrefab.ItemData = item;
         }
 
 
