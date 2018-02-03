@@ -1,7 +1,11 @@
-﻿using System.Globalization;
+﻿using System.Collections.Generic;
+using System.Globalization;
 using Assets.Plugins.SimpleStore;
+using Assets.Scripts.Models;
+using UniRx;
 using UnityEngine;
 using UnityEngine.UI;
+using Zenject;
 
 namespace Assets.Scripts
 {
@@ -39,6 +43,13 @@ namespace Assets.Scripts
             }
         }
 
+        private StoreController _controller;
+        
+        public void Init(StoreController controller)
+        {
+            _controller = controller;
+        }
+
         // Use this for initialization
         void Start () {
 		
@@ -57,6 +68,7 @@ namespace Assets.Scripts
 
         public void BuyAndWear()
         {
+            _controller.BuyAndWear(_itemData);
             ToggleState();
         }
 

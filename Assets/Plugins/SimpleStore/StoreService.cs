@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using UnityEngine.Networking.NetworkSystem;
 
 namespace Assets.Plugins.SimpleStore
 {
@@ -18,6 +19,13 @@ namespace Assets.Plugins.SimpleStore
         public IEnumerable<IStoreItem> GenerateItems()
         {
             return _generators.SelectMany(g => g.Generate()).ToList();
+        }
+
+        public void Buy(IStoreItem item, ICollection<IStoreItem> storeItems, IPlayer player)
+        {
+            player.Coins -= item.Price;
+            player.Inventory.Add(item);
+            storeItems.Remove(item);
         }
     }
 }

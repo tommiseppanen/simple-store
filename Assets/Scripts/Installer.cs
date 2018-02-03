@@ -12,6 +12,7 @@ namespace Assets.Scripts
             Container.Bind<IStoreItemGenerator>().To<ArmorGenerator>().AsSingle();
             Container.Bind<IStoreItemGenerator>().To<WeaponGenerator>().AsSingle();
             Container.Bind<IStoreService>().To<StoreService>().AsSingle();
+            Container.Bind<GameCharacter>().AsSingle();
             Container.BindInstance(new System.Random());
         }
     }
