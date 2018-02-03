@@ -15,6 +15,8 @@ namespace Assets.Scripts
         private IStoreService _storeService;
         private GameCharacter _gameCharacter;
 
+        private ReactiveCollection<IStoreItem> _storeItems;
+
         [SerializeField]
         private Transform _itemPanelPrefab;
 
@@ -23,12 +25,6 @@ namespace Assets.Scripts
         {
             _storeService = storeService;
             _gameCharacter = character;
-        }
-
-        private void UpdateSelection()
-        {
-            _storeService.GenerateItems().ForEach(i => 
-                InitializePanel(Instantiate(_itemPanelPrefab, transform), i));
         }
 
         private void InitializePanel(Component tileObject, IStoreItem item)
@@ -42,7 +38,9 @@ namespace Assets.Scripts
         // Use this for initialization
         void Start ()
         {
-            UpdateSelection();
+            _storeItems = _storeService.GenerateItems().ToReactiveCollection();
+            _storeItems.ForEach(i =>
+                InitializePanel(Instantiate(_itemPanelPrefab, transform), i));
             _gameCharacter.PlayerCoins.ObserveEveryValueChanged(x => x.Value).Subscribe(d => Debug.Log(d));
         }
 	
@@ -53,7 +51,7 @@ namespace Assets.Scripts
 
         public void BuyAndWear(IStoreItem item)
         {         
-            _storeService.Buy(item, new List<IStoreItem> { item }, _gameCharacter);
+            _storeService.Buy(item, _storeItems, _gameCharacter);
         }
     }
 }

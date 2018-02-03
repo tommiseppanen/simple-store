@@ -69,6 +69,7 @@ namespace Assets.Scripts
         public void BuyAndWear()
         {
             _controller.BuyAndWear(_itemData);
+            Destroy(gameObject);
             ToggleState();
         }
 
