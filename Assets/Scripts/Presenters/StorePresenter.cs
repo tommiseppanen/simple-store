@@ -7,9 +7,9 @@ using UniRx;
 using UnityEngine;
 using Zenject;
 
-namespace Assets.Scripts
+namespace Assets.Scripts.Presenters
 {
-    public class StoreController : MonoBehaviour
+    public class StorePresenter : MonoBehaviour
     {
 
         private IStoreService _storeService;
@@ -29,7 +29,7 @@ namespace Assets.Scripts
 
         private void InitializePanel(Component tileObject, IStoreItem item)
         {
-            var panelPrefab = tileObject.GetComponent<ItemViewModel>();
+            var panelPrefab = tileObject.GetComponent<ItemPresenter>();
             panelPrefab.ItemData = item;
             panelPrefab.Init(this);
         }

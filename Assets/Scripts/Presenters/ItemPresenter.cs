@@ -1,15 +1,11 @@
-﻿using System.Collections.Generic;
-using System.Globalization;
+﻿using System.Globalization;
 using Assets.Plugins.SimpleStore;
-using Assets.Scripts.Models;
-using UniRx;
 using UnityEngine;
 using UnityEngine.UI;
-using Zenject;
 
-namespace Assets.Scripts
+namespace Assets.Scripts.Presenters
 {
-    public class ItemViewModel : MonoBehaviour {
+    public class ItemPresenter : MonoBehaviour {
 
         [SerializeField]    
         private Text _name;
@@ -43,9 +39,9 @@ namespace Assets.Scripts
             }
         }
 
-        private StoreController _controller;
+        private StorePresenter _controller;
         
-        public void Init(StoreController controller)
+        public void Init(StorePresenter controller)
         {
             _controller = controller;
         }

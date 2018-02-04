@@ -1,16 +1,14 @@
-﻿using UniRx;
-using Assets.Plugins.SimpleStore;
+﻿using Assets.Plugins.SimpleStore;
 using Assets.Scripts.Models;
 using ModestTree;
+using UniRx;
 using UnityEngine;
 using Zenject;
 
-namespace Assets.Scripts
+namespace Assets.Scripts.Presenters
 {
-    public class InvetoryController : MonoBehaviour
+    public class InvetoryPresenter : MonoBehaviour
     {
-
-        //private IInventoryService _inventoryService;
         private GameCharacter _gameCharacter;
 
         [SerializeField]
@@ -30,7 +28,7 @@ namespace Assets.Scripts
 
         private static void InitializePanel(Component tileObject, IStoreItem item)
         {
-            var panelPrefab = tileObject.GetComponent<ItemViewModel>();
+            var panelPrefab = tileObject.GetComponent<ItemPresenter>();
             panelPrefab.ItemData = item;
         }
 

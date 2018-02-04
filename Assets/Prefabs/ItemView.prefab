@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 224940320306711390}
   - component: {fileID: 222288796899242990}
   - component: {fileID: 114569713996579470}
-  - component: {fileID: 114365051103062180}
+  - component: {fileID: 114159734517259790}
   m_Layer: 5
   m_Name: ItemView
   m_TagString: Untagged
@@ -347,7 +347,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 114365051103062180}
+      - m_Target: {fileID: 114159734517259790}
         m_MethodName: ToggleState
         m_Mode: 1
         m_Arguments:
@@ -360,6 +360,23 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
+--- !u!114 &114159734517259790
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1039398083047010}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 27fff0b80d126894cad086ac7ea52cd4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _name: {fileID: 114338818958965588}
+  _description: {fileID: 114326761850719378}
+  _price: {fileID: 114340714587712816}
+  _image: {fileID: 114861684525829118}
+  _infoPanel: {fileID: 1466633204391120}
+  _actionPanel: {fileID: 1103521177976522}
 --- !u!114 &114218149118335282
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -426,7 +443,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 114365051103062180}
+      - m_Target: {fileID: 114159734517259790}
         m_MethodName: Buy
         m_Mode: 1
         m_Arguments:
@@ -562,23 +579,6 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: "100 \u20AC"
---- !u!114 &114365051103062180
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1039398083047010}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4574b4be5bf778c48980d8a42a03dbac, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _name: {fileID: 114338818958965588}
-  _description: {fileID: 114326761850719378}
-  _price: {fileID: 114340714587712816}
-  _image: {fileID: 114861684525829118}
-  _infoPanel: {fileID: 1466633204391120}
-  _actionPanel: {fileID: 1103521177976522}
 --- !u!114 &114569713996579470
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -699,7 +699,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 114365051103062180}
+      - m_Target: {fileID: 114159734517259790}
         m_MethodName: BuyAndWear
         m_Mode: 1
         m_Arguments:
