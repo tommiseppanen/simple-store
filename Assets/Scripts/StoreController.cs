@@ -41,7 +41,6 @@ namespace Assets.Scripts
             _storeItems = _storeService.GenerateItems().ToReactiveCollection();
             _storeItems.ForEach(i =>
                 InitializePanel(Instantiate(_itemPanelPrefab, transform), i));
-            _gameCharacter.PlayerCoins.ObserveEveryValueChanged(x => x.Value).Subscribe(d => Debug.Log(d));
         }
 	
         // Update is called once per frame

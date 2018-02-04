@@ -23,7 +23,7 @@ namespace Assets.Scripts.Models
     {
         public GameCharacter()
         {
-            PlayerCoins = new ReactiveProperty<decimal>(0);
+            PlayerCoins = new ReactiveProperty<decimal>(5000);
             PlayerInventory = new ReactiveCollection<IStoreItem>();
         }
 
