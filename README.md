@@ -1,2 +1,5 @@
 # simple-store
-Simple store system for Unity
+Store/inventory system for Unity
+
+TODO:
+- UI and actions for inventory items
