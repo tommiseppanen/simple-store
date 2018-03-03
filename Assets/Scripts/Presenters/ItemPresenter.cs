@@ -1,5 +1,7 @@
-﻿using System.Globalization;
+﻿using System;
+using System.Globalization;
 using Assets.Plugins.SimpleStore;
+using UniRx;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -22,6 +24,16 @@ namespace Assets.Scripts.Presenters
         [SerializeField]
         private GameObject _actionPanel;
 
+        [SerializeField]
+        private Button _topActionButton;
+        [SerializeField]
+        private Text _topActionText;
+
+        [SerializeField]
+        private Button _bottomActionButton;
+        [SerializeField]
+        private Text _bottomActionText;
+
         private IStoreItem _itemData;
         public IStoreItem ItemData
         {
@@ -38,12 +50,14 @@ namespace Assets.Scripts.Presenters
                 _image.sprite = Resources.Load<Sprite>($"Images/{value.Image}");
             }
         }
-
-        private StorePresenter _storePresenter;
         
-        public void Init(StorePresenter storePresenter)
+        public void Init(Tuple<string, Action<Unit>> topAction, 
+            Tuple<string, Action<Unit>> bottomAction)
         {
-            _storePresenter = storePresenter;
+            _topActionText.text = topAction.Item1;
+            _topActionButton.OnClickAsObservable().Subscribe(topAction.Item2);
+            _bottomActionText.text = bottomAction.Item1;
+            _bottomActionButton.OnClickAsObservable().Subscribe(bottomAction.Item2);
         }
 
         // Use this for initialization
@@ -60,20 +74,6 @@ namespace Assets.Scripts.Presenters
         {
             _infoPanel.SetActive(!_infoPanel.activeSelf);
             _actionPanel.SetActive(!_infoPanel.activeSelf);
-        }
-
-        public void BuyAndWear()
-        {
-            _storePresenter.BuyAndWear(_itemData);
-            Destroy(gameObject);
-            ToggleState();
-        }
-
-        public void Buy()
-        {
-            _storePresenter.Buy(_itemData);
-            Destroy(gameObject);
-            ToggleState();
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using Assets.Plugins.SimpleStore;
 using Assets.Scripts.Models;
@@ -31,7 +32,19 @@ namespace Assets.Scripts.Presenters
         {
             var panelPrefab = tileObject.GetComponent<ItemPresenter>();
             panelPrefab.ItemData = item;
-            panelPrefab.Init(this);
+            var topAction = new Tuple<string, Action<Unit>>("Buy & wear", 
+                _ =>
+                {
+                    _storeService.Buy(item, _storeItems, _gameCharacter);
+                    Destroy(tileObject.gameObject);
+                });
+            var bottomAction = new Tuple<string, Action<Unit>>("Buy",
+                _ =>
+                {
+                    _storeService.Buy(item, _storeItems, _gameCharacter);
+                    Destroy(tileObject.gameObject);
+                });
+            panelPrefab.Init(topAction, bottomAction);
         }
 
 
@@ -46,16 +59,6 @@ namespace Assets.Scripts.Presenters
         // Update is called once per frame
         void Update () {
 		
-        }
-
-        public void BuyAndWear(IStoreItem item)
-        {         
-            _storeService.Buy(item, _storeItems, _gameCharacter);
-        }
-
-        public void Buy(IStoreItem item)
-        {
-            _storeService.Buy(item, _storeItems, _gameCharacter);
         }
     }
 }

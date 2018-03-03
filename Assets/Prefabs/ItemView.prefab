@@ -163,7 +163,7 @@ GameObject:
   - component: {fileID: 114030748503567070}
   - component: {fileID: 114777371252060646}
   m_Layer: 5
-  m_Name: Buy&Wear
+  m_Name: TopAction
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -198,7 +198,7 @@ GameObject:
   - component: {fileID: 114692697775067904}
   - component: {fileID: 114245574338621022}
   m_Layer: 5
-  m_Name: Buy
+  m_Name: BottomAction
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -377,6 +377,10 @@ MonoBehaviour:
   _image: {fileID: 114861684525829118}
   _infoPanel: {fileID: 1466633204391120}
   _actionPanel: {fileID: 1103521177976522}
+  _topActionButton: {fileID: 114777371252060646}
+  _topActionText: {fileID: 114103781198340040}
+  _bottomActionButton: {fileID: 114245574338621022}
+  _bottomActionText: {fileID: 114812536782937002}
 --- !u!114 &114218149118335282
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -442,18 +446,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 114692697775067904}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 114159734517259790}
-        m_MethodName: Buy
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &114290427891253082
@@ -698,18 +691,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 114030748503567070}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 114159734517259790}
-        m_MethodName: BuyAndWear
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &114812536782937002
