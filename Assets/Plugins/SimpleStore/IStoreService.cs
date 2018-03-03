@@ -6,5 +6,6 @@ namespace Assets.Plugins.SimpleStore
     {
         IEnumerable<IStoreItem> GenerateItems();
         void Buy(IStoreItem item, ICollection<IStoreItem> storeItems, IPlayer player);
+        void Sell(IStoreItem item, ICollection<IStoreItem> storeItems, IPlayer player);
     }
 }

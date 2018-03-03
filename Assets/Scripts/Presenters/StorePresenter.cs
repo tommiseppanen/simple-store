@@ -52,5 +52,10 @@ namespace Assets.Scripts.Presenters
         {         
             _storeService.Buy(item, _storeItems, _gameCharacter);
         }
+
+        public void Buy(IStoreItem item)
+        {
+            _storeService.Buy(item, _storeItems, _gameCharacter);
+        }
     }
 }

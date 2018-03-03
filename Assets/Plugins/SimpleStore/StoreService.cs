@@ -27,5 +27,10 @@ namespace Assets.Plugins.SimpleStore
             player.Inventory.Add(item);
             storeItems.Remove(item);
         }
+
+        public void Sell(IStoreItem item, ICollection<IStoreItem> storeItems, IPlayer player)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

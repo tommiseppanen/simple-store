@@ -39,11 +39,11 @@ namespace Assets.Scripts.Presenters
             }
         }
 
-        private StorePresenter _controller;
+        private StorePresenter _storePresenter;
         
-        public void Init(StorePresenter controller)
+        public void Init(StorePresenter storePresenter)
         {
-            _controller = controller;
+            _storePresenter = storePresenter;
         }
 
         // Use this for initialization
@@ -64,13 +64,15 @@ namespace Assets.Scripts.Presenters
 
         public void BuyAndWear()
         {
-            _controller.BuyAndWear(_itemData);
+            _storePresenter.BuyAndWear(_itemData);
             Destroy(gameObject);
             ToggleState();
         }
 
         public void Buy()
         {
+            _storePresenter.Buy(_itemData);
+            Destroy(gameObject);
             ToggleState();
         }
     }
