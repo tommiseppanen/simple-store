@@ -51,7 +51,7 @@ namespace Assets.Scripts.Presenters
         // Use this for initialization
         void Start ()
         {
-            _storeItems = _storeService.GenerateItems().ToReactiveCollection();
+            _storeItems = _storeService.GenerateItems(1.15m).ToReactiveCollection();
             _storeItems.ForEach(i =>
                 InitializePanel(Instantiate(_itemPanelPrefab, transform), i));
         }

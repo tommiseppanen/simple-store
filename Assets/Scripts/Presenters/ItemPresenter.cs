@@ -46,7 +46,7 @@ namespace Assets.Scripts.Presenters
                 _itemData = value;
                 _name.text = value.Name;
                 _description.text = value.Description;
-                _price.text = $"{value.Price.ToString(CultureInfo.InvariantCulture)} C";
+                _price.text = $"{value.NormalPrice.ToString(CultureInfo.InvariantCulture)} C";
                 _image.sprite = Resources.Load<Sprite>($"Images/{value.Image}");
             }
         }

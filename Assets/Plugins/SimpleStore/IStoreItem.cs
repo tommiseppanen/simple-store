@@ -6,7 +6,10 @@ namespace Assets.Plugins.SimpleStore
         int Level { get; }
         string Name { get; }
         string Description { get; }
-        decimal Price { get; }
+        decimal Value { get; }
         string Image { get; }
+
+        decimal NormalPrice { get; set; }
+        decimal DiscountedPrice { get; set; }
     }
 }
