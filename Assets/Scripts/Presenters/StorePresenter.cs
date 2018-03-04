@@ -13,16 +13,14 @@ namespace Assets.Scripts.Presenters
     public class StorePresenter : MonoBehaviour
     {
 
-        private IStoreService _storeService;
+        private Store _storeService;
         private GameCharacter _gameCharacter;
-
-        private ReactiveCollection<IStoreItem> _storeItems;
 
         [SerializeField]
         private Transform _itemPanelPrefab;
 
         [Inject]
-        public void Init(IStoreService storeService, GameCharacter character)
+        public void Init(Store storeService, GameCharacter character)
         {
             _storeService = storeService;
             _gameCharacter = character;
@@ -35,13 +33,13 @@ namespace Assets.Scripts.Presenters
             var topAction = new Tuple<string, Action<Unit>>("Buy & wear", 
                 _ =>
                 {
-                    _storeService.Buy(item, _storeItems, _gameCharacter);
+                    _storeService.Buy(item, _gameCharacter);
                     Destroy(tileObject.gameObject);
                 });
             var bottomAction = new Tuple<string, Action<Unit>>("Buy",
                 _ =>
                 {
-                    _storeService.Buy(item, _storeItems, _gameCharacter);
+                    _storeService.Buy(item, _gameCharacter);
                     Destroy(tileObject.gameObject);
                 });
             panelPrefab.Init(topAction, bottomAction);
@@ -51,9 +49,12 @@ namespace Assets.Scripts.Presenters
         // Use this for initialization
         void Start ()
         {
-            _storeItems = _storeService.GenerateItems(1.15m).ToReactiveCollection();
-            _storeItems.ForEach(i =>
+            _storeService.StoreItems.ForEach(i =>
                 InitializePanel(Instantiate(_itemPanelPrefab, transform), i));
+
+            _storeService.StoreItems.ObserveAdd()
+                .Subscribe(i =>
+                    InitializePanel(Instantiate(_itemPanelPrefab, transform), i.Value));
         }
 	
         // Update is called once per frame

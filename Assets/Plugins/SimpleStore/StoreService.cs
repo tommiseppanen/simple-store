@@ -12,16 +12,18 @@ namespace Assets.Plugins.SimpleStore
     {
         private readonly List<IStoreItemGenerator> _generators;
 
+        public virtual ICollection<IStoreItem> Items { get; }
+
         public StoreService(List<IStoreItemGenerator> generators)
         {
             _generators = generators;
         }
 
-        public IEnumerable<IStoreItem> GenerateItems(decimal salesMargin)
+        public void GenerateItems(decimal salesMargin)
         {
             var items = _generators.SelectMany(g => g.Generate()).ToList();
             items.ForEach(i => i.NormalPrice = i.Value * salesMargin);
-            return items;
+            items.ForEach(i => Items.Add(i));
         }
 
         public void SetItemPurchasePrices(IEnumerable<IStoreItem> items, decimal purchaseMargin)
@@ -29,19 +31,18 @@ namespace Assets.Plugins.SimpleStore
             items.ForEach(i => i.NormalPrice = i.Value * purchaseMargin);
         }
 
-        public void Buy(IStoreItem item, ICollection<IStoreItem> storeItems, IPlayer player)
+        public void Buy(IStoreItem item, IPlayer player)
         {
             player.Coins -= item.Value;
             player.Inventory.Add(item);
-            storeItems.Remove(item);
+            Items.Remove(item);
         }
 
-        public void Sell(IStoreItem item, ICollection<IStoreItem> storeItems, IPlayer player)
+        public void Sell(IStoreItem item, IPlayer player)
         {
             player.Coins += item.Value;
             player.Inventory.Remove(item);
-            //TODO: add back to store
-            //storeItems.Add(item);
+            Items.Add(item);
         }
     }
 }

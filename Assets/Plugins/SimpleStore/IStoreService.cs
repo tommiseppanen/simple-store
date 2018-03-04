@@ -4,9 +4,10 @@ namespace Assets.Plugins.SimpleStore
 {
     public interface IStoreService
     {
+        ICollection<IStoreItem> Items { get; }
         void SetItemPurchasePrices(IEnumerable<IStoreItem> items, decimal purchaseMargin);
-        IEnumerable<IStoreItem> GenerateItems(decimal salesMargin);
-        void Buy(IStoreItem item, ICollection<IStoreItem> storeItems, IPlayer player);
-        void Sell(IStoreItem item, ICollection<IStoreItem> storeItems, IPlayer player);
+        void GenerateItems(decimal salesMargin);
+        void Buy(IStoreItem item, IPlayer player);
+        void Sell(IStoreItem item, IPlayer player);
     }
 }

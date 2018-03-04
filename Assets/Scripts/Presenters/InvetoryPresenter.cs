@@ -17,7 +17,7 @@ namespace Assets.Scripts.Presenters
         private Transform _itemPanelPrefab;
 
         [Inject]
-        public void Init(GameCharacter character, IStoreService storeService)
+        public void Init(GameCharacter character, Store storeService)
         {
             _gameCharacter = character;
             _storeService = storeService;
@@ -41,7 +41,7 @@ namespace Assets.Scripts.Presenters
             var bottomAction = new Tuple<string, Action<Unit>>("Sell",
                 _ =>
                 {
-                    _storeService.Sell(item, _gameCharacter.PlayerInventory, _gameCharacter);
+                    _storeService.Sell(item, _gameCharacter);
                     Destroy(tileObject.gameObject);
                 });
             panelPrefab.Init(topAction, bottomAction);

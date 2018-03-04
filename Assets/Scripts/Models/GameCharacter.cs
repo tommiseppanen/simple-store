@@ -8,17 +8,6 @@ using UniRx;
 
 namespace Assets.Scripts.Models
 {
-
-
-    public class Test
-    {
-        //decimal Coins { get; set; }
-        //private ICollection<IStoreItem> Inventory { get; set; }
-        public decimal Coins { get; set; }
-
-        public virtual ICollection<IStoreItem> Inventory { get; }
-    }
-
     public class GameCharacter : IPlayer
     {
         public GameCharacter()
