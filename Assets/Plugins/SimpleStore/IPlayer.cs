@@ -6,5 +6,6 @@ namespace Assets.Plugins.SimpleStore
     {
         decimal Coins { get; set; }
         ICollection<IStoreItem> Inventory { get; }
+        void Wear(IStoreItem item);
     }
 }

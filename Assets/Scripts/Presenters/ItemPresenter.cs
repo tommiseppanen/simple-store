@@ -22,6 +22,9 @@ namespace Assets.Scripts.Presenters
         private GameObject _infoPanel;
 
         [SerializeField]
+        private Image _infoPanelBackground;
+
+        [SerializeField]
         private GameObject _actionPanel;
 
         [SerializeField]
@@ -48,16 +51,22 @@ namespace Assets.Scripts.Presenters
                 _description.text = value.Description;
                 _price.text = $"{value.NormalPrice.ToString(CultureInfo.InvariantCulture)} C";
                 _image.sprite = Resources.Load<Sprite>($"Images/{value.Image}");
+                _infoPanelBackground.color =  new Color(1,1,1,0.25f);
             }
         }
         
         public void Init(Tuple<string, Action<Unit>> topAction, 
-            Tuple<string, Action<Unit>> bottomAction)
+            Tuple<string, Action<Unit>> bottomAction, IObservable<IStoreItem> itemWeared)
         {
             _topActionText.text = topAction.Item1;
             _topActionButton.OnClickAsObservable().Subscribe(topAction.Item2);
             _bottomActionText.text = bottomAction.Item1;
             _bottomActionButton.OnClickAsObservable().Subscribe(bottomAction.Item2);
+            itemWeared.Subscribe(wearedItem =>
+            {
+                if (wearedItem == _itemData)
+                    _infoPanelBackground.color = new Color(1, 1, 1, 0.5f);
+            });
         }
 
         // Use this for initialization

@@ -37,6 +37,7 @@ namespace Assets.Scripts.Presenters
             var topAction = new Tuple<string, Action<Unit>>("Wear",
                 _ =>
                 {
+                    _gameCharacter.Wear(item);
                 });
             var bottomAction = new Tuple<string, Action<Unit>>("Sell",
                 _ =>
@@ -44,7 +45,7 @@ namespace Assets.Scripts.Presenters
                     _storeService.Sell(item, _gameCharacter);
                     Destroy(tileObject.gameObject);
                 });
-            panelPrefab.Init(topAction, bottomAction);
+            panelPrefab.Init(topAction, bottomAction, _gameCharacter.WearedItem);
         }
 
 
