@@ -87,8 +87,14 @@ namespace Assets.Scripts.Presenters
 		
         }
 
-        public void ToggleState()
+        public void ToggleState(bool? infoPanelActive = null)
         {
+            if (infoPanelActive != null)
+            {
+                _infoPanel.SetActive(infoPanelActive.Value);
+                _actionPanel.SetActive(!infoPanelActive.Value);
+                return;
+            }
             _infoPanel.SetActive(!_infoPanel.activeSelf);
             _actionPanel.SetActive(!_infoPanel.activeSelf);
         }
