@@ -56,16 +56,24 @@ namespace Assets.Scripts.Presenters
         }
         
         public void Init(Tuple<string, Action<Unit>> topAction, 
-            Tuple<string, Action<Unit>> bottomAction, IObservable<IStoreItem> itemWeared)
+            Tuple<string, Action<Unit>> bottomAction, IObservable<bool> itemWeared)
         {
             _topActionText.text = topAction.Item1;
-            _topActionButton.OnClickAsObservable().Subscribe(topAction.Item2);
+            var topButtonObservable = _topActionButton.OnClickAsObservable();
+            topButtonObservable.Subscribe(topAction.Item2);
+            topButtonObservable.Subscribe(_ => ToggleState());
+
             _bottomActionText.text = bottomAction.Item1;
-            _bottomActionButton.OnClickAsObservable().Subscribe(bottomAction.Item2);
-            itemWeared.Subscribe(wearedItem =>
+            var bottomButtonObservable = _bottomActionButton.OnClickAsObservable();
+            bottomButtonObservable.Subscribe(bottomAction.Item2);
+            bottomButtonObservable.Subscribe(_ => ToggleState());
+
+            itemWeared.Subscribe(weared =>
             {
-                if (wearedItem == _itemData)
+                if (weared && _infoPanelBackground != null)
                     _infoPanelBackground.color = new Color(1, 1, 1, 0.5f);
+                else if (!weared && _infoPanelBackground != null)
+                    _infoPanelBackground.color = new Color(1, 1, 1, 0.25f);
             });
         }
 

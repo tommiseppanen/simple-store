@@ -43,7 +43,8 @@ namespace Assets.Scripts.Presenters
                     _storeService.Buy(item, _gameCharacter);
                     Destroy(tileObject.gameObject);
                 });
-            panelPrefab.Init(topAction, bottomAction, _gameCharacter.WearedItem);
+            panelPrefab.Init(topAction, bottomAction, 
+                _gameCharacter.WearedItem.Select(_ => _gameCharacter.IsWearing(item)));
         }
 
 

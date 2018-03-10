@@ -37,5 +37,8 @@ namespace Assets.Scripts.Models
 
         public IObservable<IStoreItem> WearedItem => 
             Weapon.AsObservable<IStoreItem>().Merge(Armor.AsObservable());
+
+        public bool IsWearing(IStoreItem item) => 
+            Armor.Value == item || Weapon.Value == item;
     }
 }
