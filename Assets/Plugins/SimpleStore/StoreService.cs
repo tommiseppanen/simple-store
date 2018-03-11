@@ -41,6 +41,7 @@ namespace Assets.Plugins.SimpleStore
         public void Sell(IStoreItem item, IPlayer player)
         {
             player.Coins += item.Value;
+            player.TakeOff(item);
             player.Inventory.Remove(item);
             Items.Add(item);
         }

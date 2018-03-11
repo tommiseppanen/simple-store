@@ -35,6 +35,14 @@ namespace Assets.Scripts.Models
                 Weapon.Value = item as Weapon;
         }
 
+        public void TakeOff(IStoreItem item)
+        {
+            if (Armor.Value == item)
+                Armor.Value = null;
+            else if (Weapon.Value == item)
+                Weapon.Value = null;
+        }
+
         public IObservable<IStoreItem> WearedItem => 
             Weapon.AsObservable<IStoreItem>().Merge(Armor.AsObservable());
 
