@@ -346,18 +346,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 114569713996579470}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 114159734517259790}
-        m_MethodName: ToggleState
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &114159734517259790
@@ -376,6 +365,7 @@ MonoBehaviour:
   _price: {fileID: 114340714587712816}
   _image: {fileID: 114861684525829118}
   _infoPanel: {fileID: 1466633204391120}
+  _infoPanelButton: {fileID: 114147123216651916}
   _infoPanelBackground: {fileID: 114666408512916918}
   _actionPanel: {fileID: 1103521177976522}
   _topActionButton: {fileID: 114777371252060646}

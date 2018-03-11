@@ -22,6 +22,9 @@ namespace Assets.Scripts.Presenters
         private GameObject _infoPanel;
 
         [SerializeField]
+        private Button _infoPanelButton;
+
+        [SerializeField]
         private Image _infoPanelBackground;
 
         [SerializeField]
@@ -58,15 +61,17 @@ namespace Assets.Scripts.Presenters
         public void Init(Tuple<string, Action<Unit>> topAction, 
             Tuple<string, Action<Unit>> bottomAction, IObservable<bool> itemWeared)
         {
+            _infoPanelButton.OnClickAsObservable().Subscribe(_ => ToggleState(false));
+
             _topActionText.text = topAction.Item1;
             var topButtonObservable = _topActionButton.OnClickAsObservable();
             topButtonObservable.Subscribe(topAction.Item2);
-            topButtonObservable.Subscribe(_ => ToggleState());
+            topButtonObservable.Subscribe(_ => ToggleState(true));
 
             _bottomActionText.text = bottomAction.Item1;
             var bottomButtonObservable = _bottomActionButton.OnClickAsObservable();
             bottomButtonObservable.Subscribe(bottomAction.Item2);
-            bottomButtonObservable.Subscribe(_ => ToggleState());
+            bottomButtonObservable.Subscribe(_ => ToggleState(true));
 
             itemWeared.Subscribe(weared =>
             {
@@ -83,20 +88,29 @@ namespace Assets.Scripts.Presenters
         }
 	
         // Update is called once per frame
-        void Update () {
-		
+        void Update ()
+        {
+            if (Input.touchCount <= 0 && !Input.GetMouseButtonDown(0))
+                return;
+
+            Vector2 position;
+            if (Input.touchCount > 0)
+                position = Input.touches[0].position;
+            else
+                position = Input.mousePosition;
+
+            if (!_actionPanel.activeSelf)
+                return;
+
+            if (!RectTransformUtility.RectangleContainsScreenPoint(GetComponent<RectTransform>(), position))
+                ToggleState(true);
+
         }
 
-        public void ToggleState(bool? infoPanelActive = null)
+        public void ToggleState(bool infoPanelActive)
         {
-            if (infoPanelActive != null)
-            {
-                _infoPanel.SetActive(infoPanelActive.Value);
-                _actionPanel.SetActive(!infoPanelActive.Value);
-                return;
-            }
-            _infoPanel.SetActive(!_infoPanel.activeSelf);
-            _actionPanel.SetActive(!_infoPanel.activeSelf);
+            _infoPanel.SetActive(infoPanelActive);
+            _actionPanel.SetActive(!infoPanelActive);
         }
     }
 }
