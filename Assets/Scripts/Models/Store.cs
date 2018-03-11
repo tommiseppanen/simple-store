@@ -17,7 +17,7 @@ namespace Assets.Scripts.Models
         public Store(List<IStoreItemGenerator> generators) : base(generators)
         {
             StoreItems = new ReactiveCollection<IStoreItem>();
-            GenerateItems(1.15m);
+            Initialize(1.15m, 0.8m);
         }
     }
 }

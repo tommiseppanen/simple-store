@@ -25,7 +25,7 @@ namespace Assets.Scripts.Presenters
 
         private void UpdateSelection()
         {
-            _storeService.SetItemPurchasePrices(_gameCharacter.PlayerInventory, 0.8m);
+            _storeService.SetItemPurchasePrices(_gameCharacter.PlayerInventory);
             _gameCharacter.PlayerInventory?.ForEach(i => 
                 InitializePanel(Instantiate(_itemPanelPrefab, transform), i));
         }

@@ -13,16 +13,16 @@ namespace Assets.Scripts.Presenters
     public class StorePresenter : MonoBehaviour
     {
 
-        private Store _storeService;
+        private Store _store;
         private GameCharacter _gameCharacter;
 
         [SerializeField]
         private Transform _itemPanelPrefab;
 
         [Inject]
-        public void Init(Store storeService, GameCharacter character)
+        public void Init(Store store, GameCharacter character)
         {
-            _storeService = storeService;
+            _store = store;
             _gameCharacter = character;
         }
 
@@ -33,14 +33,14 @@ namespace Assets.Scripts.Presenters
             var topAction = new Tuple<string, Action<Unit>>("Buy & wear", 
                 _ =>
                 {
-                    _storeService.Buy(item, _gameCharacter);
+                    _store.Buy(item, _gameCharacter);
                     _gameCharacter.Wear(item);
                     Destroy(tileObject.gameObject);
                 });
             var bottomAction = new Tuple<string, Action<Unit>>("Buy",
                 _ =>
                 {
-                    _storeService.Buy(item, _gameCharacter);
+                    _store.Buy(item, _gameCharacter);
                     Destroy(tileObject.gameObject);
                 });
             panelPrefab.Init(topAction, bottomAction, 
@@ -51,10 +51,10 @@ namespace Assets.Scripts.Presenters
         // Use this for initialization
         void Start ()
         {
-            _storeService.StoreItems.ForEach(i =>
+            _store.StoreItems.ForEach(i =>
                 InitializePanel(Instantiate(_itemPanelPrefab, transform), i));
 
-            _storeService.StoreItems.ObserveAdd()
+            _store.StoreItems.ObserveAdd()
                 .Subscribe(i =>
                     InitializePanel(Instantiate(_itemPanelPrefab, transform), i.Value));
         }
