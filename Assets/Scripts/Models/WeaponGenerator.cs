@@ -1,8 +1,8 @@
 using System;
 using System.Collections.Generic;
-using Assets.Plugins.SimpleStore;
+using Plugins.SimpleStore;
 
-namespace Assets.Scripts.Models
+namespace Models
 {
     public class WeaponGenerator : IStoreItemGenerator
     {

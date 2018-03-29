@@ -1,6 +1,4 @@
-﻿using Assets.Plugins.SimpleStore;
-
-namespace Assets.Scripts.Models
+﻿namespace Models
 {
     public class Armor : GameItem
     {

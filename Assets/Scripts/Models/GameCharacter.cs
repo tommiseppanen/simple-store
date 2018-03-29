@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-using Assets.Plugins.SimpleStore;
+using Plugins.SimpleStore;
 using UniRx;
 
-namespace Assets.Scripts.Models
+namespace Models
 {
     public class GameCharacter : IPlayer
     {

@@ -1,5 +1,5 @@
-using Assets.Plugins.SimpleStore;
-using Assets.Scripts.Models;
+using Models;
+using Plugins.SimpleStore;
 using UnityEngine;
 using Zenject;
 

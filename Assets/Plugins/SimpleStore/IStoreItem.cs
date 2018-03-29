@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace Assets.Plugins.SimpleStore
+﻿namespace Plugins.SimpleStore
 {
     public interface IStoreItem  {
         int Level { get; }

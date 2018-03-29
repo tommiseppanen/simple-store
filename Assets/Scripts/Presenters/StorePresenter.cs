@@ -1,14 +1,12 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using Assets.Plugins.SimpleStore;
-using Assets.Scripts.Models;
+using Models;
 using ModestTree;
+using Plugins.SimpleStore;
 using UniRx;
 using UnityEngine;
 using Zenject;
 
-namespace Assets.Scripts.Presenters
+namespace Presenters
 {
     public class StorePresenter : MonoBehaviour
     {

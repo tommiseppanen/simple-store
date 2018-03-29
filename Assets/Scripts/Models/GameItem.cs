@@ -1,11 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Assets.Plugins.SimpleStore;
+﻿using Plugins.SimpleStore;
 
-namespace Assets.Scripts.Models
+namespace Models
 {
     public abstract class GameItem : IStoreItem
     {

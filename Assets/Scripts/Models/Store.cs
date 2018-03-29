@@ -1,12 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Assets.Plugins.SimpleStore;
+﻿using System.Collections.Generic;
+using Plugins.SimpleStore;
 using UniRx;
 
-namespace Assets.Scripts.Models
+namespace Models
 {
     public class Store : StoreService
     {

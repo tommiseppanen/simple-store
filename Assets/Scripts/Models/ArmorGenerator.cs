@@ -1,9 +1,8 @@
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using Assets.Plugins.SimpleStore;
+using Plugins.SimpleStore;
 
-namespace Assets.Scripts.Models
+namespace Models
 {
     public class ArmorGenerator : IStoreItemGenerator
     {

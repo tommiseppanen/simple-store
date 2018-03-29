@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace Assets.Plugins.SimpleStore
+namespace Plugins.SimpleStore
 {
     public interface IStoreItemGenerator  {
         IEnumerable<IStoreItem> Generate();

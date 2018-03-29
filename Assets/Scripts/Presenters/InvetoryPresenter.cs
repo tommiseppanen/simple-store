@@ -1,12 +1,12 @@
 ﻿using System;
-using Assets.Plugins.SimpleStore;
-using Assets.Scripts.Models;
+using Models;
 using ModestTree;
+using Plugins.SimpleStore;
 using UniRx;
 using UnityEngine;
 using Zenject;
 
-namespace Assets.Scripts.Presenters
+namespace Presenters
 {
     public class InvetoryPresenter : MonoBehaviour
     {

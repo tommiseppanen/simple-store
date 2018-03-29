@@ -1,11 +1,11 @@
 ﻿using System;
 using System.Globalization;
-using Assets.Plugins.SimpleStore;
+using Plugins.SimpleStore;
 using UniRx;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Assets.Scripts.Presenters
+namespace Presenters
 {
     public class ItemPresenter : MonoBehaviour {
 

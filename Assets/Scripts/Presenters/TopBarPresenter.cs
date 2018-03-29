@@ -1,14 +1,11 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using System.Globalization;
-using Assets.Plugins.SimpleStore;
-using Assets.Scripts.Models;
+﻿using System.Globalization;
+using Models;
 using UniRx;
 using UnityEngine;
 using UnityEngine.UI;
 using Zenject;
 
-namespace Assets.Scripts.Presenters
+namespace Presenters
 {
     public class TopBarPresenter : MonoBehaviour
     {
