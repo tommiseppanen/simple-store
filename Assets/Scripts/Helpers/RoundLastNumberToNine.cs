@@ -2,7 +2,7 @@
 
 namespace Helpers
 {
-    public class PriceRounder : IPriceRounder
+    public class RoundLastNumberToNine : IPriceRounder
     {
         public decimal RoundPrice(decimal value)
         {

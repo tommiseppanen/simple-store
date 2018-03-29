@@ -14,7 +14,7 @@ namespace Plugins.SimpleStore
         private decimal _salesMargin;
         private decimal _purchaseMargin;
 
-        public StoreService(List<IStoreItemGenerator> generators, IPriceRounder rounder = null)
+        public StoreService(List<IStoreItemGenerator> generators, IPriceRounder rounder)
         {
             _generators = generators;
             _rounder = rounder;
@@ -54,9 +54,7 @@ namespace Plugins.SimpleStore
 
         private decimal CalculatePrice(decimal itemValue, decimal margin)
         {
-            if (_rounder != null)
-                return _rounder.RoundPrice(itemValue * margin);
-            return itemValue * margin;
+            return _rounder.RoundPrice(itemValue * margin);
         }
     }
 }

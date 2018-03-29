@@ -1,3 +1,4 @@
+using Helpers;
 using Models;
 using Plugins.SimpleStore;
 using UnityEngine;
@@ -11,6 +12,7 @@ namespace Assets.Scripts
         {
             Container.Bind<IStoreItemGenerator>().To<ArmorGenerator>().AsSingle();
             Container.Bind<IStoreItemGenerator>().To<WeaponGenerator>().AsSingle();
+            Container.Bind<IPriceRounder>().To<RoundLastNumberToNine>().AsSingle();
             Container.Bind<GameCharacter>().AsSingle();
             Container.Bind<Store>().AsSingle();
             Container.BindInstance(new System.Random());

@@ -10,7 +10,7 @@ namespace Models
 
         public override ICollection<IStoreItem> Items => StoreItems;
 
-        public Store(List<IStoreItemGenerator> generators) : base(generators)
+        public Store(List<IStoreItemGenerator> generators, IPriceRounder rounder) : base(generators, rounder)
         {
             StoreItems = new ReactiveCollection<IStoreItem>();
             Initialize(1.15m, 0.8m);
