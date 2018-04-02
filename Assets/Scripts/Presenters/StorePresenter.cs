@@ -5,6 +5,7 @@ using Plugins.SimpleStore;
 using UniRx;
 using UnityEngine;
 using Zenject;
+using System.Linq;
 
 namespace Presenters
 {
@@ -49,17 +50,21 @@ namespace Presenters
         // Use this for initialization
         void Start ()
         {
-            _store.StoreItems.ForEach(i =>
-                InitializePanel(Instantiate(_itemPanelPrefab, transform), i));
-
-            _store.StoreItems.ObserveAdd()
-                .Subscribe(i =>
-                    InitializePanel(Instantiate(_itemPanelPrefab, transform), i.Value));
+            CreateItems();
+            _store.StoreItems.ObserveAdd().Subscribe(_ =>
+            {
+                foreach (Transform child in transform)
+                {
+                    Destroy(child.gameObject);
+                }
+                CreateItems();
+            });
         }
-	
-        // Update is called once per frame
-        void Update () {
-		
+
+        private void CreateItems()
+        {
+            _store.StoreItems.OrderBy(i => i.Image).ThenBy(i => i.NormalPrice).ForEach(i =>
+                InitializePanel(Instantiate(_itemPanelPrefab, transform), i));
         }
     }
 }

@@ -5,6 +5,7 @@ using Plugins.SimpleStore;
 using UniRx;
 using UnityEngine;
 using Zenject;
+using System.Linq;
 
 namespace Presenters
 {
@@ -26,7 +27,8 @@ namespace Presenters
         private void UpdateSelection()
         {
             _storeService.SetItemPurchasePrices(_gameCharacter.PlayerInventory);
-            _gameCharacter.PlayerInventory?.ForEach(i => 
+            _gameCharacter.PlayerInventory?.OrderBy(i => i.Image)
+                .ThenBy(i => i.NormalPrice).ForEach(i => 
                 InitializePanel(Instantiate(_itemPanelPrefab, transform), i));
         }
 
@@ -49,19 +51,17 @@ namespace Presenters
                 _gameCharacter.WearedItem.Select(_ => _gameCharacter.IsWearing(item)));
         }
 
-
-        // Use this for initialization
         void Start ()
         {
-            //TODO: ObserveRemove?
-            _gameCharacter.PlayerInventory.ObserveAdd()
-                .Subscribe(x => InitializePanel(Instantiate(_itemPanelPrefab, transform), x.Value));
             UpdateSelection();
-        }
-	
-        // Update is called once per frame
-        void Update () {
-		
+            _gameCharacter.PlayerInventory.ObserveAdd().Subscribe(_ =>
+            {
+                foreach (Transform child in transform)
+                {
+                    Destroy(child.gameObject);
+                }
+                UpdateSelection();
+            });
         }
     }
 }
