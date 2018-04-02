@@ -3,9 +3,5 @@ Store/inventory system for Unity. Designed for easy use and customization. Uses 
 
 ![Simple Store screenshot](http://tommiseppanen.github.io/screenshots/simple-store.png)
 
-TODO:
-- sorting
-
 Ideas:
 - support for multiple characters
-- different colors for rare items
