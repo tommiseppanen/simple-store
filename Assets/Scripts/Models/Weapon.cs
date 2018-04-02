@@ -1,4 +1,6 @@
-﻿namespace Models
+﻿using Plugins.SimpleStore;
+
+namespace Models
 {
     public class Weapon : GameItem
     {
@@ -10,7 +12,7 @@
         public override decimal Value => Level*Level/10*10+99;      
         public override string Image => "sword";
         
-        public Weapon(string name, int damage, float attackSpeed) : base(name)
+        public Weapon(string name, int damage, float attackSpeed, Rarity rarity) : base(name, rarity)
         {
             Damage = damage;
             AttackSpeed = attackSpeed;

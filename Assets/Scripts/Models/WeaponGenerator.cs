@@ -15,9 +15,9 @@ namespace Models
 		{
 		    var armors = new List<Weapon>
 		    {
-		        new Weapon("Daggers", _random.Next(100,200), 0.3f),
-		        new Weapon("Small sword", _random.Next(300,400), 0.5f),
-                new Weapon("Sword", _random.Next(500,600), 0.6f)
+		        new Weapon("Daggers", _random.Next(100,200), 0.3f, Rarity.Normal),
+		        new Weapon("Small sword", _random.Next(300,400), 0.5f, Rarity.Normal),
+                new Weapon("Sword", _random.Next(500,600), 0.6f, Rarity.Special)
             };
              
             return armors;

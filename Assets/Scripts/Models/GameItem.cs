@@ -12,11 +12,12 @@ namespace Models
         public virtual string Description { get; }
         public virtual decimal Value { get; }
         public virtual string Image { get; }
+        public virtual Rarity Rarity { get; set; }
 
-
-        public GameItem(string name)
+        public GameItem(string name, Rarity rarity)
         {
             Name = name;
+            Rarity = rarity;
         }
     }
 }

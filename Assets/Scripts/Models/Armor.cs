@@ -1,4 +1,6 @@
-﻿namespace Models
+﻿using Plugins.SimpleStore;
+
+namespace Models
 {
     public class Armor : GameItem
     {
@@ -8,7 +10,7 @@
         public override string Image => "armor";
         public override string Description => $"Armor class: {ArmorClass}";
 
-        public Armor(string name, int armorClass) : base(name)
+        public Armor(string name, int armorClass, Rarity rarity) : base(name, rarity)
         {
             ArmorClass = armorClass;
         }

@@ -54,7 +54,6 @@ namespace Presenters
                 _description.text = value.Description;
                 _price.text = $"{value.NormalPrice.ToString(CultureInfo.InvariantCulture)} C";
                 _image.sprite = Resources.Load<Sprite>($"Images/{value.Image}");
-                _infoPanelBackground.color =  new Color(1,1,1,0.25f);
             }
         }
         
@@ -75,11 +74,19 @@ namespace Presenters
 
             itemWeared.Subscribe(weared =>
             {
-                if (weared && _infoPanelBackground != null)
-                    _infoPanelBackground.color = new Color(1, 1, 1, 0.5f);
-                else if (!weared && _infoPanelBackground != null)
-                    _infoPanelBackground.color = new Color(1, 1, 1, 0.25f);
+                if (_infoPanelBackground != null)
+                    _infoPanelBackground.color = GetItemColor(weared);
             });
+        }
+
+        private Color GetItemColor(bool weared)
+        {
+            var alpha = weared ? 0.5f : 0.25f;
+            if (_itemData.Rarity == Rarity.Special)
+                return new Color(0, 1, 0, alpha);
+            else if (_itemData.Rarity == Rarity.Rare)
+                return new Color(0, 0, 1, alpha);
+            return new Color(1, 1, 1, alpha);
         }
 
         // Use this for initialization

@@ -9,5 +9,7 @@
 
         decimal NormalPrice { get; set; }
         decimal DiscountedPrice { get; set; }
+
+        Rarity Rarity { get; set; }
     }
 }

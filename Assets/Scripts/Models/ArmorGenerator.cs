@@ -15,9 +15,9 @@ namespace Models
 		{
 		    var armors = new List<Armor>
 		    {
-		        new Armor("Jacket", _random.Next(80,110)),
-		        new Armor("Leather", _random.Next(400,600)),
-                new Armor("Plate", _random.Next(800,900))
+		        new Armor("Jacket", _random.Next(80,110), Rarity.Normal),
+		        new Armor("Leather", _random.Next(400,600), Rarity.Normal),
+                new Armor("Plate", _random.Next(800,900), Rarity.Rare)
             };
              
             return armors;
